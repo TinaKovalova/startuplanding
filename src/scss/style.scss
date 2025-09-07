@@ -1,0 +1,33 @@
+@use "sass:math";
+@use "fonts";
+@use "reset";
+@use "variables" as *;
+@use "common";
+@use "header";
+@use "main";
+@use "footer";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.5;
+    background-color: bisque;
+}
+.wrapper {
+    min-height: 100%;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+}
+.wrapper > main {
+    flex-grow: 1;
+}
+
+[class$="__container"] {
+    max-width: #{$maxWidthContainer}+ "px"; //1240px
+    padding-inline: #{$paddingContainer}+ "px";
+    margin: 0 auto;
+}

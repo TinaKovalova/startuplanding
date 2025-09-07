@@ -1,0 +1,65 @@
+@use "variables" as *;
+
+.button {
+    border-radius: 5px;
+    font-weight: 500;
+    padding-inline: 25px;
+    padding-block: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 9px;
+    transition:
+        background-color 0.3s ease-out,
+        color 0.3s ease-out;
+    &--purple {
+        background-color: $secondaryColor;
+        color: #ffffff;
+    }
+    &--transperent {
+        color: $secondaryColor;
+    }
+    &--transperent,
+    &--purple {
+        font-weight: 700;
+    }
+    &--icon {
+        flex-direction: row-reverse;
+        &::before {
+            font-size: 10px;
+            color: inherit;
+            transform: translateX(0);
+            transition: transform 0.3s ease-out;
+        }
+    }
+
+    &--gray {
+        background-color: #edf0f2;
+        color: $primaryDarkColor;
+    }
+    &--white {
+        background-color: #ffffff;
+        color: #020718;
+    }
+    &--gray,
+    &--white {
+        letter-spacing: -0.16px;
+    }
+    @media (any-hover: hover) {
+        &--purple:hover,
+        &--transperent:hover,
+        &--gray:hover {
+            color: $secondaryColor;
+            background-color: #ffffff;
+        }
+        &--white:hover {
+            color: #ffffff;
+            background-color: $secondaryColor;
+        }
+        &:hover {
+            &::before {
+                transform: translateX(50%);
+            }
+        }
+    }
+}
