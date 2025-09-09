@@ -12,8 +12,37 @@
         <load src="/src/partials/header.html" />
         <main class="page">
             <section class="hero">
+                <picture class="hero__background">
+                    <source srcset="/src/images/hero/bg.jpg" media="(max-width:1920px)" class="hero__background-image">
+                    <img src="/src/images/hero/bg_large.jpg" alt="cozy room" class="hero__background-image">
+                </picture>
                 <div class="hero__container">
-
+                    <div class="hero__content">
+                        <div class="hero__header">
+                            <h1 class="hero__title">
+                                Coworking space that will feel like home.
+                            </h1>
+                            <div class="hero__text">
+                                Whether you’re an established enterprise or a growing startup, discover spaces that
+                                inspire
+                                which will best your most
+                                impactful work.
+                            </div>
+                        </div>
+                        <form action="#" class="hero__form workplace-form" name="workplace">
+                            <div class="workplace-form__row">
+                                <label for="place" class="workplace-form__select-label">
+                                    Find workplace
+                                </label>
+                                <select id="place" name="place"  class="workplace-form__select">
+                                    <option value="Chicago, New york" selected>Chicago, New york</option>
+                                    <option value="Los Angeles">Los Angeles</option>
+                                    <option value="Philadelphia">Philadelphia</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="button button--purple">Subscribe</button>
+                        </form>
+                    </div>
                 </div>
             </section>
         </main>
