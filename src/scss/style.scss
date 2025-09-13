@@ -14,7 +14,6 @@ html {
 body {
     font-family: "DM Sans", sans-serif;
     line-height: 1.5;
-    background-color: bisque;
     color: $primaryDarkColor;
     &:has(.header._active-menu) {
         overflow: hidden;
