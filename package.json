@@ -20,6 +20,6 @@
     "vite-plugin-webp-and-path": "^0.1.4"
   },
   "dependencies": {
-    "swiper": "^11.2.8"
+    "swiper": "^11.2.10"
   }
 }
