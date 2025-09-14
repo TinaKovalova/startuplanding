@@ -10,15 +10,22 @@ window.addEventListener("load", () => {
   burgerButton?.addEventListener("click", () => {
     header?.classList.toggle("_active-menu");
   });
+  const togglePriceButton = document.querySelector(".pricing-plan__toggle");
 
-  var swiper = new Swiper(".offers__swiper.swiper", {
+  togglePriceButton?.addEventListener("click", (e) => {
+      const target = e.currentTarget;
+      e.currentTarget.classList.toggle("_checked")
+      target.classList.contains("_checked")?target.setAttribute("data-checked", true):target.setAttribute("data-checked", false)
+  })
+
+  const swiper = new Swiper(".offers__swiper.swiper", {
     speed: 2000,
     loop: true,
     modules: [Pagination, Autoplay, EffectFade],
-    // autoplay: {
-    //   delay: 2500,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
     effect: "fade",
     pagination: {
       el: ".swiper-pagination",
