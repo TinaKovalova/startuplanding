@@ -7,7 +7,7 @@ import "/src/scss/style.scss";
 window.addEventListener("load", () => {
   const header = document.querySelector(".header");
   const burgerButton = document.querySelector(".burger-button");
-  const clientsScroller = document.querySelector(".clients__scroller");
+
   burgerButton?.addEventListener("click", () => {
     header?.classList.toggle("_active-menu");
   });
@@ -19,17 +19,42 @@ window.addEventListener("load", () => {
     } else {
        header.classList.remove("header--blur");
     }
-})
+  })
+  
 
+  const clientsScroller = document.querySelector(".clients__scroller");
   const scrollerList = clientsScroller?.querySelector(".clients-list");
-   const scrollerListContent = [...scrollerList.children];
-   scrollerListContent.forEach((item) => {
-     const dublicateItem = item.cloneNode(true);
-     dublicateItem.setAttribute("aria-hidden", true);
-     scrollerList.appendChild(dublicateItem);
-   });
 
+//   const clientsScrollerWidth = parseInt(getComputedStyle(clientsScroller).width);
+//     const scrollerListWidth = parseInt(getComputedStyle(scrollerList).width);
+// console.log(clientsScrollerWidth / scrollerListWidth);
 
+  const scrollerListContent = [...scrollerList.children];
+  scrollerListContent.forEach((item) => {
+    const dublicateItem = item.cloneNode(true);
+    dublicateItem.setAttribute("aria-hidden", true);
+    scrollerList.appendChild(dublicateItem);
+  });
+  scrollerList.classList.add("clients-list--run");
+    // if (scrollerListWidth <= clientsScrollerWidth) {
+    //   console.log("yes");
+    //   let i = Math.ceil((clientsScrollerWidth * 2) / scrollerListWidth);
+    //   // console.log("--i", i)
+    //   do {
+    //     scrollerListContent.forEach((item) => {
+    //       const dublicateItem = item.cloneNode(true);
+    //       dublicateItem.setAttribute("aria-hidden", true);
+    //       scrollerList.appendChild(dublicateItem);
+    //     });
+    //     console.log("--i", i);
+    //     --i;
+    //   }while (i > 0) 
+    
+   
+    //   scrollerList.classList.add("clients-list--run");
+    // } else {
+    //   console.log("not");
+    // }
 
   const togglePriceButton = document.querySelector(".pricing-plan__toggle");
 

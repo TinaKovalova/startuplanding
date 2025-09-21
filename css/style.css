@@ -774,8 +774,8 @@ input[type=number] {
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(calc(-100% - 90px));
-            transform: translateX(calc(-100% - 90px));
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 }
 @keyframes running-line {
@@ -784,23 +784,14 @@ input[type=number] {
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(calc(-100% - 90px));
-            transform: translateX(calc(-100% - 90px));
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 }
-.clients__scroller-list {
-  -webkit-animation: running-line 18s linear forwards infinite;
-          animation: running-line 18s linear forwards infinite;
-}
-.clients__scroller-list:hover {
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-
 .clients-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -810,7 +801,6 @@ input[type=number] {
   height: 48px;
   display: grid;
   place-items: center;
-  margin-right: 90px;
 }
 .clients-list__image {
   max-height: 100%;
@@ -818,6 +808,31 @@ input[type=number] {
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
+}
+.clients-list.clients-list--run {
+  -webkit-animation: running-line 18s linear forwards infinite;
+          animation: running-line 18s linear forwards infinite;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+.clients-list.clients-list--run:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+.clients-list.clients-list--run .clients-list__item[aria-hidden=true] {
+  background-color: gray;
+}
+.clients-list.clients-list--run .clients-list__item {
+  margin-right: 90px;
+}
+.clients-list:not(.clients-list--run) {
+  -webkit-column-gap: 90px;
+     -moz-column-gap: 90px;
+          column-gap: 90px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .offers__container {
