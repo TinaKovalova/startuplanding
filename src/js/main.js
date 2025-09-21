@@ -7,9 +7,30 @@ import "/src/scss/style.scss";
 window.addEventListener("load", () => {
   const header = document.querySelector(".header");
   const burgerButton = document.querySelector(".burger-button");
+  const clientsScroller = document.querySelector(".clients__scroller");
   burgerButton?.addEventListener("click", () => {
     header?.classList.toggle("_active-menu");
   });
+
+  window.addEventListener("scroll", () => {
+    const headerHeigth =parseInt(getComputedStyle(header).height);
+    if (window.scrollY > headerHeigth/2) {
+      header.classList.add("header--blur");
+    } else {
+       header.classList.remove("header--blur");
+    }
+})
+
+  const scrollerList = clientsScroller?.querySelector(".clients-list");
+   const scrollerListContent = [...scrollerList.children];
+   scrollerListContent.forEach((item) => {
+     const dublicateItem = item.cloneNode(true);
+     dublicateItem.setAttribute("aria-hidden", true);
+     scrollerList.appendChild(dublicateItem);
+   });
+
+
+
   const togglePriceButton = document.querySelector(".pricing-plan__toggle");
 
   togglePriceButton?.addEventListener("click", (e) => {
