@@ -229,14 +229,23 @@ input[type=number] {
   letter-spacing: -0.5px;
 }
 .block-header__title:not(:last-child) {
-  margin-bottom: 22px;
+  margin-bottom: 15px;
 }
 .block-header--main .block-header__title {
   font-size: clamp(32px, 2.5vw, 48px);
   font-weight: 700;
-  line-height: 1.56;
   letter-spacing: -1.5px;
   text-wrap: balance;
+}
+@media (min-width: 992px) {
+  .block-header--main .block-header__title {
+    line-height: 1.56;
+  }
+}
+@media (min-width: 992px) {
+  .block-header__title:not(:last-child) {
+    margin-bottom: 22px;
+  }
 }
 .block-header__text {
   font-size: 17px;
@@ -245,7 +254,11 @@ input[type=number] {
 }
 .block-header--main .block-header__text {
   color: inherit;
-  line-height: 2.47;
+}
+@media (min-width: 992px) {
+  .block-header--main .block-header__text {
+    line-height: 2.47;
+  }
 }
 
 .section-header {
@@ -651,7 +664,12 @@ input[type=number] {
   }
 }
 .hero__header:not(:last-child) {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+@media (min-width: 992px) {
+  .hero__header:not(:last-child) {
+    margin-bottom: 40px;
+  }
 }
 
 .workplace-form {
@@ -710,7 +728,7 @@ input[type=number] {
 }
 
 .clients__container {
-  padding-block: 40px;
+  padding-block: 35px;
 }
 @media (min-width: 992px) {
   .clients__container {
@@ -718,7 +736,7 @@ input[type=number] {
   }
 }
 .clients__header:not(:last-child) {
-  margin-bottom: 50px;
+  margin-bottom: 35px;
 }
 @media (min-width: 992px) {
   .clients__header:not(:last-child) {
@@ -778,7 +796,7 @@ input[type=number] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 20px 10px;
-  padding-block: 40px;
+  padding-block: 35px;
 }
 @media (min-width: 992px) {
   .offers__container {
@@ -809,7 +827,7 @@ input[type=number] {
   max-width: 485px;
 }
 .offers__header:not(:last-child) {
-  margin-bottom: 44px;
+  margin-bottom: 35px;
 }
 .offers__header .block-header__title {
   max-width: 440px;
@@ -924,9 +942,6 @@ input[type=number] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: 30px;
 }
 .advatages__item {
@@ -938,11 +953,24 @@ input[type=number] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 13px;
+  gap: 13px;
+}
+@media (min-width: 992px) {
+  .advatages__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (max-width: 991.98px) {
+  .advatages__item {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 .advatages__icon {
   width: 35px;
@@ -956,12 +984,17 @@ input[type=number] {
   font-size: 20;
   letter-spacing: -1.5px;
 }
+@media (max-width: 991.98px) {
+  .advatages__title {
+    width: calc(100% - 50px);
+  }
+}
 .advatages__text {
   color: #343d48;
 }
 
 .working-space__container {
-  padding-block: 40px;
+  padding-block: 35px;
 }
 @media (min-width: 992px) {
   .working-space__container {
@@ -1074,7 +1107,7 @@ input[type=number] {
   background-color: #020718;
 }
 .pricing-plan__container {
-  padding-block: 40px;
+  padding-block: 35px;
 }
 @media (min-width: 992px) {
   .pricing-plan__container {
@@ -1098,7 +1131,12 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  row-gap: 60px;
+  row-gap: 35px;
+}
+@media (min-width: 992px) {
+  .pricing-plan__body {
+    row-gap: 60px;
+  }
 }
 .pricing-plan__toggle {
   border-radius: 5px;
@@ -1367,7 +1405,7 @@ input[type=number] {
 }
 
 .reviews__container {
-  padding-block: 40px;
+  padding-block: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1428,7 +1466,7 @@ input[type=number] {
 }
 
 .blog__container {
-  padding-block: 40px;
+  padding-block: 35px;
 }
 @media (min-width: 992px) {
   .blog__container {
@@ -1439,7 +1477,12 @@ input[type=number] {
   }
 }
 .blog__header:not(:last-child) {
-  margin-bottom: 58px;
+  margin-bottom: 30px;
+}
+@media (min-width: 992px) {
+  .blog__header:not(:last-child) {
+    margin-bottom: 58px;
+  }
 }
 .blog__posts {
   display: grid;
