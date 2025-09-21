@@ -802,3 +802,117 @@
         }
     }
 }
+.blog {
+    // .blog__container
+
+    &__container {
+        padding-block: 40px;
+        @media (min-width: 992px) {
+            padding-block-start: 45px;
+            padding-block-end: 154px;
+        }
+    }
+
+    // .blog__header
+
+    &__header {
+        &:not(:last-child) {
+            margin-bottom: 58px;
+        }
+    }
+
+    // .blog__posts
+
+    &__posts {
+        display: grid;
+        gap: 30px 18px;
+        grid-template-columns: 1fr;
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        }
+        @media (min-width: 1100px) {
+            padding-inline: 30px;
+            gap: 30px;
+        }
+    }
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    @media (min-width: 992px) {
+        row-gap: 25px;
+    }
+    // .post__image-link
+
+    &__image-link {
+        width: 100%;
+        aspect-ratio: 410 / 300;
+        border-radius: 5px;
+        overflow: hidden;
+        background-color: #c4c4c4;
+        @media (any-hover: hover) {
+            &:hover .post__image {
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    // .post__image
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-out;
+    }
+
+    // .post__content
+
+    &__content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        @media (min-width: 992px) {
+            row-gap: 20px;
+        }
+    }
+
+    // .post__title
+
+    &__title {
+        flex-grow: 1;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    // .post__title-link
+
+    &__title-link {
+        transition: color 0.3s ease-out;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $secondaryColor;
+            }
+        }
+    }
+
+    // .post__comments-info
+
+    &__comments-info {
+        color: rgba($color: $primaryLightColor, $alpha: 0.8);
+        line-height: 1.63;
+        font-weight: 500;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 4px;
+        &::before {
+            content: "";
+            width: 25px;
+            background: url("/src/images/icons/chat.svg") center/contain no-repeat;
+            margin-right: 3px;
+        }
+    }
+}
