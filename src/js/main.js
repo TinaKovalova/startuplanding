@@ -13,56 +13,44 @@ window.addEventListener("load", () => {
   });
 
   window.addEventListener("scroll", () => {
-    const headerHeigth =parseInt(getComputedStyle(header).height);
-    if (window.scrollY > headerHeigth/2) {
+    const headerHeigth = parseInt(getComputedStyle(header).height);
+    if (window.scrollY > headerHeigth / 2) {
       header.classList.add("header--blur");
     } else {
-       header.classList.remove("header--blur");
+      header.classList.remove("header--blur");
     }
-  })
-  
+  });
 
+  //---Scrolller-----------------------
   const clientsScroller = document.querySelector(".clients__scroller");
   const scrollerList = clientsScroller?.querySelector(".clients-list");
-
-//   const clientsScrollerWidth = parseInt(getComputedStyle(clientsScroller).width);
-//     const scrollerListWidth = parseInt(getComputedStyle(scrollerList).width);
-// console.log(clientsScrollerWidth / scrollerListWidth);
-
   const scrollerListContent = [...scrollerList.children];
-  scrollerListContent.forEach((item) => {
-    const dublicateItem = item.cloneNode(true);
-    dublicateItem.setAttribute("aria-hidden", true);
-    scrollerList.appendChild(dublicateItem);
-  });
-  scrollerList.classList.add("clients-list--run");
-    // if (scrollerListWidth <= clientsScrollerWidth) {
-    //   console.log("yes");
-    //   let i = Math.ceil((clientsScrollerWidth * 2) / scrollerListWidth);
-    //   // console.log("--i", i)
-    //   do {
-    //     scrollerListContent.forEach((item) => {
-    //       const dublicateItem = item.cloneNode(true);
-    //       dublicateItem.setAttribute("aria-hidden", true);
-    //       scrollerList.appendChild(dublicateItem);
-    //     });
-    //     console.log("--i", i);
-    //     --i;
-    //   }while (i > 0) 
-    
-   
-    //   scrollerList.classList.add("clients-list--run");
-    // } else {
-    //   console.log("not");
-    // }
+  let counter = Math.ceil((clientsScroller.scrollWidth * 2) / scrollerList.scrollWidth);
+  if (counter % 2 === 0) counter--;
+
+  while (counter > 0) {
+    scrollerListContent.forEach((item) => {
+      const dublicateItem = item.cloneNode(true);
+      dublicateItem.setAttribute("aria-hidden", true);
+      scrollerList.appendChild(dublicateItem);
+    });
+    counter--;
+  }
+  //---Scrolller animation settings-----------------------
+  const totalWidth = scrollerList.scrollWidth / 2;
+  const animationSpeed = scrollerList.dataset.speed || 60;
+  const duration = Math.floor(totalWidth / animationSpeed);
+  scrollerList.style.animationDuration = `${duration}s`;
+
 
   const togglePriceButton = document.querySelector(".pricing-plan__toggle");
-
   togglePriceButton?.addEventListener("click", (e) => {
-      const target = e.currentTarget;
-      e.currentTarget.classList.toggle("_checked")
-      target.classList.contains("_checked")?target.setAttribute("data-checked", true):target.setAttribute("data-checked", false)
-  })
+    const target = e.currentTarget;
+    e.currentTarget.classList.toggle("_checked");
+    target.classList.contains("_checked")
+      ? target.setAttribute("data-checked", true)
+      : target.setAttribute("data-checked", false);
+  });
 
   const swiper = new Swiper(".offers__swiper.swiper", {
     speed: 2000,
@@ -83,3 +71,4 @@ window.addEventListener("load", () => {
     },
   });
 });
+
