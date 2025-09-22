@@ -208,9 +208,14 @@ input[type=number] {
   letter-spacing: -0.16px;
 }
 @media (any-hover: hover) {
-  .button--purple:hover, .button--transperent:hover, .button--gray:hover {
-    color: #8d448b;
-    background-color: #ffffff;
+  .button--purple:hover {
+    background-color: #7c1677;
+  }
+  .button--transperent:hover {
+    color: #881782;
+  }
+  .button--gray:hover {
+    background-color: rgb(215, 219, 221);
   }
   .button--white:hover {
     color: #ffffff;
@@ -476,6 +481,7 @@ input[type=number] {
 }
 .navigation__submenu {
   line-height: 0;
+  min-width: 100%;
 }
 
 .submenu {
@@ -647,6 +653,8 @@ input[type=number] {
   aspect-ratio: 1920/1007;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 .hero__content {
   max-width: 600px;
@@ -661,7 +669,7 @@ input[type=number] {
   .hero__content {
     padding-inline: 56px;
     padding-block: 50px;
-    min-height: 630px;
+    min-height: 62.38svh;
   }
 }
 .hero__header:not(:last-child) {
@@ -1212,6 +1220,8 @@ input[type=number] {
   font-weight: 500;
   letter-spacing: -0.24px;
   position: relative;
+  -webkit-transition: color 0.4s ease-out;
+  transition: color 0.4s ease-out;
 }
 .pricing-plan__toggle::before {
   content: "";
@@ -1222,15 +1232,18 @@ input[type=number] {
   position: absolute;
   top: 7px;
   left: 8px;
-  -webkit-transition: left 0.4s ease-out, right 0.4s ease-out;
-  transition: left 0.4s ease-out, right 0.4s ease-out;
+  -webkit-transition: -webkit-transform 0.4s ease-out;
+  transition: -webkit-transform 0.4s ease-out;
+  transition: transform 0.4s ease-out;
+  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
 }
 .pricing-plan__toggle:not(._checked) span:last-of-type {
   color: #ffffff;
 }
 .pricing-plan__toggle._checked::before {
-  left: auto;
-  right: 8px;
+  -webkit-transform: translateX(calc(100% + 4px));
+      -ms-transform: translateX(calc(100% + 4px));
+          transform: translateX(calc(100% + 4px));
 }
 .pricing-plan__toggle._checked span:first-of-type {
   color: #ffffff;
@@ -1779,6 +1792,9 @@ input[type=number] {
   padding-inline: 30px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.08);
+}
+.suscribe-form__input:-webkit-autofill, .suscribe-form__input:-webkit-autofill:hover, .suscribe-form__input:-webkit-autofill:focus, .suscribe-form__input:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff;
 }
 .suscribe-form__button {
   -ms-flex-negative: 0;

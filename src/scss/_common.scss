@@ -46,11 +46,16 @@
         letter-spacing: -0.16px;
     }
     @media (any-hover: hover) {
-        &--purple:hover,
-        &--transperent:hover,
+        &--purple:hover {
+            background-color: #7c1677;
+        }
+        &--transperent:hover {
+            color: #881782;
+        }
+
         &--gray:hover {
-            color: $secondaryColor;
-            background-color: #ffffff;
+            // color: $secondaryColor;
+            background-color: rgb(215, 219, 221);
         }
         &--white:hover {
             color: #ffffff;

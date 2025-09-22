@@ -125,6 +125,12 @@
         padding-inline: 30px;
         border-radius: 5px;
         background-color: rgba($color: #ffffff, $alpha: 0.08);
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            -webkit-text-fill-color: #ffffff;
+        }
     }
 
     // .suscribe-form__button

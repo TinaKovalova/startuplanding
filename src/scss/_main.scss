@@ -31,6 +31,7 @@
         height: 100%;
         aspect-ratio: 1920 / 1007;
         object-fit: cover;
+        object-position: top;
     }
 
     // .hero__content
@@ -44,7 +45,7 @@
         @media (min-width: 992px) {
             padding-inline: 56px;
             padding-block: 50px;
-            min-height: 630px;
+            min-height: 62.38svh;
         }
     }
     &__header {
@@ -556,6 +557,7 @@
             font-weight: 500;
             letter-spacing: -0.24px;
             position: relative;
+            transition: color 0.4s ease-out;
         }
         &::before {
             content: "";
@@ -566,16 +568,13 @@
             position: absolute;
             top: 7px;
             left: 8px;
-            transition:
-                left 0.4s ease-out,
-                right 0.4s ease-out;
+            transition: transform 0.4s ease-out;
         }
         &:not(._checked) span:last-of-type {
             color: #ffffff;
         }
         &._checked::before {
-            left: auto;
-            right: 8px;
+            transform: translateX(calc(100% + 4px));
         }
         &._checked span:first-of-type {
             color: #ffffff;

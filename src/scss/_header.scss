@@ -94,7 +94,6 @@
 
     &__item {
         position: relative;
-
         @media (any-hover: hover) {
             &:hover .navigation__link::after {
                 transform: rotate(-90deg);
@@ -152,6 +151,7 @@
 
     &__submenu {
         line-height: 0;
+        min-width: 100%;
     }
 }
 .submenu {
