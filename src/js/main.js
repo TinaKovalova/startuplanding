@@ -82,8 +82,8 @@ window.addEventListener("load", () => {
         const activeSlide = swiper.slides[swiper.activeIndex];
         const currentTitle = activeSlide.querySelector(".offer-slide__title");
         const currentLocation = activeSlide.querySelector(".offer-slide__location");
-        currentSlideTitle?.textContent = currentTitle.textContent;
-        currentSlideLocation?.textContent = currentLocation.textContent;
+        if (currentSlideTitle) currentSlideTitle.textContent = currentTitle?.textContent;
+        if (currentSlideLocation) currentSlideLocation.textContent = currentLocation?.textContent;
       },
     },
   });
