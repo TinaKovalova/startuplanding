@@ -256,6 +256,11 @@
         & .swiper-slide {
             aspect-ratio: 650 / 500;
             min-height: 500px;
+
+            &:not(.swiper-slide-active) {
+                transition: opacity 0.45s ease-out;
+                opacity: 0;
+            }
             @media (min-width: 992px) {
                 padding-inline-start: 50px;
                 padding-inline-end: 14px;
@@ -280,6 +285,64 @@
                 background-color: #ffffff;
             }
         }
+        & .autoplay-progress {
+            width: 310px;
+            max-width: 95%;
+            border-radius: 5px;
+            background-color: $secondaryColor;
+            color: #ffffff;
+            padding-block: clamp(15px, 1.82vw, 35px);
+            padding-inline: clamp(10px, 1.3vw, 25px);
+            display: flex;
+            column-gap: 16px;
+            position: absolute;
+            top: 4.9%;
+            left: 0;
+            z-index: 3;
+
+            // .offer-slide__label-play
+
+            & .progres-label__icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                position: relative;
+                & svg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            & .progres-label__image {
+                --progress: 0;
+                stroke: #ffffff;
+                fill: none;
+                stroke-dashoffset: calc(147.65px * (1 - var(--progress)));
+                stroke-dasharray: 147.65;
+                transform: rotate(-90deg);
+            }
+
+            // .offer-slide__label-content
+
+            & .progres-label__content {
+                // line-height: 1;
+                letter-spacing: -0.5px;
+            }
+
+            // .offer-slide__label-title
+
+            & .progres-label__title {
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            // .offer-slide__label-location
+
+            & .progres-label__location {
+                font-weight: 500;
+                opacity: 0.6;
+            }
+        }
     }
 }
 
@@ -298,50 +361,14 @@
         aspect-ratio: 600 / 650;
         object-fit: cover;
     }
-    // .offer-slide__label
-
-    &__label {
-        width: 310px;
-        max-width: 95%;
-        border-radius: 5px;
-        background-color: $secondaryColor;
-        color: #ffffff;
-        padding-block: clamp(15px, 1.82vw, 35px);
-        padding-inline: clamp(10px, 1.3vw, 25px);
-        display: flex;
-        column-gap: 16px;
+    // .offer-slide__content
+    &__content {
         position: absolute;
-        top: 4.9%;
+        top: 0;
         left: 0;
-    }
-
-    // .offer-slide__label-play
-
-    &__label-play {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-
-    // .offer-slide__label-content
-
-    &__label-content {
-        // line-height: 1;
-        letter-spacing: -0.5px;
-    }
-
-    // .offer-slide__label-title
-
-    &__label-title {
-        font-size: 18px;
-        font-weight: 700;
-    }
-
-    // .offer-slide__label-location
-
-    &__label-location {
-        font-weight: 500;
-        opacity: 0.6;
+        // opacity: 0;
+        line-height: 0;
+        font-size: 0;
     }
 }
 

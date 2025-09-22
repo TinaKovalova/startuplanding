@@ -903,6 +903,11 @@ input[type=number] {
   aspect-ratio: 650/500;
   min-height: 500px;
 }
+.offers__swiper .swiper-slide:not(.swiper-slide-active) {
+  -webkit-transition: opacity 0.45s ease-out;
+  transition: opacity 0.45s ease-out;
+  opacity: 0;
+}
 @media (min-width: 992px) {
   .offers__swiper .swiper-slide {
     -webkit-padding-start: 50px;
@@ -935,22 +940,7 @@ input[type=number] {
   width: 10px;
   background-color: #ffffff;
 }
-
-.offer-slide {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #c4c4c4;
-}
-.offer-slide__image {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 600/650;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.offer-slide__label {
+.offers__swiper .autoplay-progress {
   width: 310px;
   max-width: 95%;
   border-radius: 5px;
@@ -967,22 +957,61 @@ input[type=number] {
   position: absolute;
   top: 4.9%;
   left: 0;
+  z-index: 3;
 }
-.offer-slide__label-play {
+.offers__swiper .autoplay-progress .progres-label__icon {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  position: relative;
 }
-.offer-slide__label-content {
+.offers__swiper .autoplay-progress .progres-label__icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.offers__swiper .autoplay-progress .progres-label__image {
+  --progress: 0;
+  stroke: #ffffff;
+  fill: none;
+  stroke-dashoffset: calc(147.65px * (1 - var(--progress)));
+  stroke-dasharray: 147.65;
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+.offers__swiper .autoplay-progress .progres-label__content {
   letter-spacing: -0.5px;
 }
-.offer-slide__label-title {
+.offers__swiper .autoplay-progress .progres-label__title {
   font-size: 18px;
   font-weight: 700;
 }
-.offer-slide__label-location {
+.offers__swiper .autoplay-progress .progres-label__location {
   font-weight: 500;
   opacity: 0.6;
+}
+
+.offer-slide {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #c4c4c4;
+}
+.offer-slide__image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 600/650;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.offer-slide__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 0;
+  font-size: 0;
 }
 
 .advatages {

@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Pagination,Autoplay,EffectFade } from "swiper/modules";
+import { Pagination,Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "/src/scss/style.scss";
@@ -52,15 +52,19 @@ window.addEventListener("load", () => {
       : target.setAttribute("data-checked", false);
   });
 
-  const swiper = new Swiper(".offers__swiper.swiper", {
+  const offersSwiperElement = document.querySelector(".offers__swiper.swiper");
+
+  const progressCircle = offersSwiperElement.querySelector(".progres-label__image");
+  const currentSlideTitle = offersSwiperElement.querySelector(".progres-label__title");
+  const currentSlideLocation = offersSwiperElement.querySelector(".progres-label__location");
+  const offersSwiper = new Swiper(".offers__swiper.swiper", {
     speed: 2000,
     loop: true,
-    modules: [Pagination, Autoplay, EffectFade],
+    modules: [Pagination, Autoplay],
     autoplay: {
       delay: 2500,
       disableOnInteraction: false,
     },
-    effect: "fade",
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -69,6 +73,22 @@ window.addEventListener("load", () => {
         return index < 3 ? `<span class="${className}"></span>` : "";
       },
     },
+    on: {
+      autoplayTimeLeft(swiper, time, progress) {
+        progressCircle.style.setProperty("--progress", 1 - progress);
+      },
+
+      slideChange(swiper) {
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        const currentTitle = activeSlide.querySelector(".offer-slide__title");
+        const currentLocation = activeSlide.querySelector(".offer-slide__location");
+        currentSlideTitle?.textContent = currentTitle.textContent;
+        currentSlideLocation?.textContent = currentLocation.textContent;
+      },
+    },
   });
+
+
+ 
 });
 
