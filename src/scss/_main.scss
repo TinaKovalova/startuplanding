@@ -184,9 +184,7 @@
 .clients-list {
     display: inline-flex;
     align-items: center;
-    column-gap: 90px;
     padding-block: 12px;
-    padding-inline-end: 90px;
     will-change: transform;
     animation: running-line linear forwards infinite;
     width: min-content;
@@ -200,7 +198,7 @@
         height: 48px;
         display: grid;
         place-items: center;
-        // margin-right: 90px;
+        margin-right: 90px;
     }
 
     // .clients-list__image
