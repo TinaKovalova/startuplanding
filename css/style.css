@@ -321,7 +321,7 @@ input[type=number] {
 }
 .section-header__title {
   color: #8d448b;
-  font-style: 18px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 2.22;
   text-transform: capitalize;
@@ -673,7 +673,7 @@ input[type=number] {
   z-index: -1;
   width: 100%;
   height: 100dvh;
-  background-color: rgba(255, 255, 255, 0.93);
+  background-color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -923,8 +923,8 @@ input[type=number] {
      -moz-column-gap: 90px;
           column-gap: 90px;
   padding-block: 12px;
-  -webkit-padding-start: 90px;
-          padding-inline-start: 90px;
+  -webkit-padding-end: 90px;
+          padding-inline-end: 90px;
   will-change: transform;
   -webkit-animation: running-line linear forwards infinite;
           animation: running-line linear forwards infinite;
@@ -978,7 +978,7 @@ input[type=number] {
   }
 }
 @media (min-width: 992px) {
-  .offers__content {
+  ant.advatages__title .offers__content {
     padding-inline: 14px;
   }
 }
@@ -1051,6 +1051,9 @@ input[type=number] {
 .offers__swiper .swiper-slide {
   aspect-ratio: 650/500;
   min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .offers__swiper .swiper-slide:not(.swiper-slide-active) {
   -webkit-transition: opacity 0.45s ease-out;
@@ -1211,7 +1214,7 @@ input[type=number] {
   margin-bottom: 4px;
 }
 .advatages__title {
-  font-size: 20;
+  font-size: 20px;
   letter-spacing: -1.5px;
 }
 @media (max-width: 991.98px) {
@@ -1390,6 +1393,9 @@ input[type=number] {
   }
 }
 .pricing-plan__toggle {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   min-height: 62px;

@@ -186,7 +186,7 @@
     align-items: center;
     column-gap: 90px;
     padding-block: 12px;
-    padding-inline-start: 90px;
+    padding-inline-end: 90px;
     will-change: transform;
     animation: running-line linear forwards infinite;
     width: min-content;
@@ -231,8 +231,7 @@
     }
 
     // .offers__content
-
-    &__content {
+    ant.advatages__title &__content {
         @media (min-width: 992px) {
             padding-inline: 14px;
         }
@@ -301,6 +300,7 @@
         & .swiper-slide {
             aspect-ratio: 650 / 500;
             min-height: 500px;
+            display: flex;
 
             &:not(.swiper-slide-active) {
                 transition: opacity 0.45s ease-out;
@@ -452,7 +452,7 @@
     // .advatages__title
 
     &__title {
-        font-size: 20;
+        font-size: 20px;
         letter-spacing: -1.5px;
         @media (max-width: 991.98px) {
             width: calc(100% - 50px);
@@ -625,6 +625,7 @@
     // .pricing-plan__toggle
 
     &__toggle {
+        min-width: max-content;
         border-radius: 5px;
         border: 1px solid rgba($color: #ffffff, $alpha: 0.2);
         min-height: 62px;
