@@ -39,6 +39,12 @@
     & .suscribe-form {
         max-width: 555px;
         margin: 0 auto;
+        opacity: 0;
+        will-change: opacity;
+        transition: opacity 0.4s ease-out 1s;
+    }
+    .footer__top:has(.footer__header._animated) > .suscribe-form {
+        opacity: 1;
     }
 
     // .footer__bottom

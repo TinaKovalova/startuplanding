@@ -25,7 +25,9 @@ window.addEventListener("load", () => {
   const clientsScroller = document.querySelector(".clients__scroller");
   const scrollerList = clientsScroller?.querySelector(".clients-list");
   const scrollerListContent = [...scrollerList.children];
-  let counter = Math.ceil((clientsScroller.scrollWidth * 2) / scrollerList.scrollWidth);
+  let counter = Math.ceil(
+    (clientsScroller.scrollWidth * 2) / scrollerList.scrollWidth
+  );
   if (counter % 2 === 0) counter--;
 
   while (counter > 0) {
@@ -42,7 +44,6 @@ window.addEventListener("load", () => {
   const duration = Math.floor(totalWidth / animationSpeed);
   scrollerList.style.animationDuration = `${duration}s`;
 
-
   const togglePriceButton = document.querySelector(".pricing-plan__toggle");
   togglePriceButton?.addEventListener("click", (e) => {
     const target = e.currentTarget;
@@ -52,13 +53,13 @@ window.addEventListener("load", () => {
       : target.setAttribute("data-checked", false);
   });
 
+  //---Swiper-----------------------
   const offersSwiperElement = document.querySelector(".offers__swiper.swiper");
-
   const progressCircle = offersSwiperElement.querySelector(".progres-label__image");
   const currentSlideTitle = offersSwiperElement.querySelector(".progres-label__title");
   const currentSlideLocation = offersSwiperElement.querySelector(".progres-label__location");
   const offersSwiper = new Swiper(".offers__swiper.swiper", {
-    speed: 2000,
+    speed: 3000,
     loop: true,
     modules: [Pagination, Autoplay],
     autoplay: {
@@ -81,14 +82,52 @@ window.addEventListener("load", () => {
       slideChange(swiper) {
         const activeSlide = swiper.slides[swiper.activeIndex];
         const currentTitle = activeSlide.querySelector(".offer-slide__title");
-        const currentLocation = activeSlide.querySelector(".offer-slide__location");
-        if (currentSlideTitle) currentSlideTitle.textContent = currentTitle?.textContent;
-        if (currentSlideLocation) currentSlideLocation.textContent = currentLocation?.textContent;
+        const currentLocation = activeSlide.querySelector(
+          ".offer-slide__location"
+        );
+        if (currentSlideTitle)
+          currentSlideTitle.textContent = currentTitle?.textContent;
+        if (currentSlideLocation)
+          currentSlideLocation.textContent = currentLocation?.textContent;
       },
     },
   });
 
 
- 
+  //---observer---------------------
+  const mainOptions = { threshold: 0.8 };
+  const cardsOptions = { threshold: 0.3 };
+  const onEntry = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("_animated");
+        observer.unobserve(entry.target);
+      }
+    })
+  }
+  const mainObserver = new IntersectionObserver(onEntry, mainOptions);
+  const cardsObserver = new IntersectionObserver(onEntry, cardsOptions);
+
+  const animationTargetElements = document.querySelectorAll(
+    ".block-header, .section-header,.working-space__button, .pricing-plan__toggle"
+  );
+
+  if (animationTargetElements.length > 0) {
+    animationTargetElements.forEach((targetElement) =>
+      mainObserver.observe(targetElement)
+    );
+  }
+    const animationTargetCards = document.querySelectorAll(".pricing-plan__card,.working-space__gallery-item");
+  if (animationTargetCards.length > 0) {
+    animationTargetCards.forEach((card) => cardsObserver.observe(card));
+  }
+  const posts = document.querySelectorAll(".post");
+  if (posts.length > 0) {
+    posts.forEach((card, index) => {
+      card.style.transitionDelay = `${index * 300 / 1000}s`
+      cardsObserver.observe(card);
+    } )
+  }
+
 });
 

@@ -1,2 +1,17 @@
 @use "sass:math";
 @use "variables" as *;
+
+@mixin appearance-3Deffect($duration: 0s, $delay: 0s) {
+    transform: translate3d(0, 30%, 0) rotate3d(1, 0, 0, 30deg);
+    opacity: 0;
+    will-change: transform, opacity;
+    transition-duration: $duration;
+    transition-delay: $delay;
+    transition-property: transform, opacity;
+    transition-timing-function: ease-out;
+
+    ._animated & {
+        transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, 0deg);
+        opacity: 1;
+    }
+}
