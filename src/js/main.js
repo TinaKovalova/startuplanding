@@ -7,6 +7,7 @@ import "/src/scss/style.scss";
 window.addEventListener("load", () => {
   const header = document.querySelector(".header");
   const burgerButton = document.querySelector(".burger-button");
+  const menuBurger = document.querySelector(".menu-burger");
 
   burgerButton?.addEventListener("click", () => {
     header?.classList.toggle("_active-menu");
@@ -20,6 +21,13 @@ window.addEventListener("load", () => {
       header.classList.remove("header--blur");
     }
   });
+
+  menuBurger?.addEventListener("click", (e) => {
+    if (!e.target.closest(".navigation__item.navigation__item--dropdown")) {
+      header?.classList.remove("_active-menu");
+    }
+  });
+
 
   //---Scrolller-----------------------
   const clientsScroller = document.querySelector(".clients__scroller");
@@ -62,10 +70,10 @@ window.addEventListener("load", () => {
     speed: 3000,
     loop: true,
     modules: [Pagination, Autoplay],
-    // autoplay: {
-    //   delay: 2500,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -117,14 +125,15 @@ window.addEventListener("load", () => {
       mainObserver.observe(targetElement)
     );
   }
-    const animationTargetCards = document.querySelectorAll(".pricing-plan__card,.working-space__gallery-item");
+    const animationTargetCards = document.querySelectorAll(".working-space__gallery-item");
   if (animationTargetCards.length > 0) {
     animationTargetCards.forEach((card) => cardsObserver.observe(card));
   }
   const posts = document.querySelectorAll(".post");
   if (posts.length > 0) {
+    const mql = matchMedia("(min-width:992px)").matches;
     posts.forEach((card, index) => {
-      card.style.transitionDelay = `${index * 300 / 1000}s`
+      if (mql) card.style.transitionDelay = `${(index * 200) / 1000}s`;
       cardsObserver.observe(card);
     } )
   }

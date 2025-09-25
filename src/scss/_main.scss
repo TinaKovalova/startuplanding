@@ -658,6 +658,10 @@
         &._animated {
             opacity: 1;
             transform: scale(1);
+            & + .pricing-plan__options {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         & span {
@@ -701,6 +705,13 @@
         display: flex;
         justify-content: center;
         gap: 30px;
+        opacity: 0;
+        transform: translateY(15%);
+        will-change: opacity, transform;
+        transition:
+            opacity 0.5s ease-out 1.3s,
+            transform 0.5s ease-out 1.3s;
+
         @media (max-width: 768px) {
             flex-wrap: wrap-reverse;
         }
@@ -722,18 +733,11 @@
     border-radius: 10px;
     border: 1px solid rgba($color: #f3f4f5, $alpha: 0.4);
     color: #ffffff;
-    opacity: 0;
-    transform: translateY(15%);
-    will-change: opacity, transform, box-shadow, border-color;
+    will-change: box-shadow, border-color;
     transition:
         box-shadow 0.3s ease-out,
-        border-color 0.3s ease-out,
-        opacity 0.5s ease-out,
-        transform 0.5s ease-out;
-    &._animated {
-        opacity: 1;
-        transform: translateY(0);
-    }
+        border-color 0.3s ease-out;
+
     &--light {
         background-color: #ffffff;
         color: inherit;
