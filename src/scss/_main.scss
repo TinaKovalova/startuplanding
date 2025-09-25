@@ -1,7 +1,7 @@
 @use "variables" as *;
 @use "mixins";
 .hero {
-    min-height: 100dvh;
+    min-height: 100lvh;
     position: relative;
     display: flex;
 
@@ -13,8 +13,13 @@
         align-items: center;
         position: relative;
         z-index: 1;
+        padding-block-start: 55px;
+        padding-block-end: 20px;
         @media (max-width: 991.98px) {
             justify-content: center;
+        }
+        @media (min-width: 992px) {
+            padding-block-start: 85px;
         }
     }
 
@@ -105,7 +110,6 @@
 
     &__select {
         width: 100%;
-        min-height: 75px;
         border: 2px solid $secondaryColor;
         border-radius: 5px;
         background-color: #ffffff;
@@ -115,8 +119,11 @@
         padding-block-end: 10px;
         font-size: 16px;
         font-weight: 500;
-        line-height: 2.5;
+        line-height: 2;
         appearance: none;
+        @media (min-width: 992px) {
+            line-height: 2.5;
+        }
     }
 }
 
@@ -195,12 +202,15 @@
     // .clients-list__item
 
     &__item {
+        width: fit-content;
         height: 48px;
         display: grid;
         place-items: center;
         margin-right: 90px;
     }
-
+    &__item[aria-hidden="true"] {
+        background-color: #636879;
+    }
     // .clients-list__image
 
     &__image {
