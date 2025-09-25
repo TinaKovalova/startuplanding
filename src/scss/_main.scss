@@ -1,7 +1,7 @@
 @use "variables" as *;
 @use "mixins";
 .hero {
-    min-height: 100lvh;
+    min-height: 100vh;
     position: relative;
     display: flex;
 
@@ -189,7 +189,7 @@
 }
 
 .clients-list {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     padding-block: 12px;
     will-change: transform;
@@ -202,21 +202,20 @@
     // .clients-list__item
 
     &__item {
-        width: fit-content;
+        min-width: fit-content;
         height: 48px;
-        display: grid;
-        place-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-right: 90px;
     }
-    &__item[aria-hidden="true"] {
-        background-color: #636879;
-    }
+
     // .clients-list__image
 
     &__image {
         max-height: 100%;
         object-fit: contain;
-        object-position: center;
+        object-position: left center;
     }
 }
 
@@ -239,7 +238,7 @@
     }
 
     // .offers__content
-    ant.advatages__title &__content {
+    .advatages__title &__content {
         @media (min-width: 992px) {
             padding-inline: 14px;
         }
@@ -295,7 +294,7 @@
             transform: translateX(0);
         }
         @media (max-width: 991.92px) {
-            min-height: 500px;
+            // min-height: 100svh;
         }
     }
     &__swiper {
@@ -309,8 +308,8 @@
             display: flex;
             flex-direction: column;
             aspect-ratio: 650 / 500;
-            height: auto;
-            min-height: 500px;
+            max-height: 500px;
+            min-height: 350px;
             &:not(.swiper-slide-active) {
                 transition: opacity 0.45s ease-out;
                 opacity: 0;
@@ -341,12 +340,12 @@
         }
         & .autoplay-progress {
             width: 310px;
-            max-width: 95%;
+            max-width: 80%;
             border-radius: 5px;
             background-color: $secondaryColor;
             color: #ffffff;
-            padding-block: clamp(15px, 1.82vw, 35px);
-            padding-inline: clamp(10px, 1.3vw, 25px);
+            padding-block: clamp(8px, 1.82vw, 35px);
+            padding-inline: clamp(8px, 1.3vw, 25px);
             display: flex;
             column-gap: 16px;
             position: absolute;
@@ -379,22 +378,27 @@
             // .offer-slide__label-content
 
             & .progres-label__content {
-                // line-height: 1;
                 letter-spacing: -0.5px;
             }
 
             // .offer-slide__label-title
 
             & .progres-label__title {
-                font-size: 18px;
                 font-weight: 700;
+                @media (min-width: 992px) {
+                    font-size: 18px;
+                }
             }
 
             // .offer-slide__label-location
 
             & .progres-label__location {
+                font-size: 14px;
                 font-weight: 500;
                 opacity: 0.6;
+                @media (min-width: 992px) {
+                    font-size: inherit;
+                }
             }
         }
     }
