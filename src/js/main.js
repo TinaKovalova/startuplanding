@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
   });
 
   menuBurger?.addEventListener("click", (e) => {
-    if (!e.target.closest(".navigation__item.navigation__item--dropdown")) {
+     if (!e.target.closest(".navigation__item.navigation__item--dropdown") || e.target.matches(".submenu__link")) {
       header?.classList.remove("_active-menu");
     }
   });

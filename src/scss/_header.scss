@@ -102,13 +102,12 @@
             &:hover .navigation__link {
                 color: $secondaryColor;
             }
-            &--dropdown:hover {
-                & .submenu {
-                    line-height: 1.5;
-                    opacity: 1;
-                    visibility: visible;
-                    pointer-events: auto;
-                }
+            &--dropdown:hover .submenu {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                height: auto;
             }
         }
         @media (any-hover: none) and (pointer: coarse) {
@@ -120,12 +119,12 @@
                 color: $secondaryColor;
             }
 
-            &--dropdown:hover {
-                & .submenu {
-                    line-height: 1.5;
-                    opacity: 1;
-                    visibility: visible;
-                }
+            &--dropdown:hover .submenu {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                height: auto;
+                pointer-events: auto;
             }
         }
     }
@@ -143,14 +142,12 @@
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
             border-top: 5px solid $menuColor;
-            transition: transform 0.3s ease-out;
         }
     }
 
     // .navigation__submenu
 
     &__submenu {
-        line-height: 0;
         min-width: 100%;
     }
 }
@@ -163,9 +160,15 @@
     visibility: hidden;
     pointer-events: none;
     transition:
-        opacity 0.3s ease-out,
-        line-height 0.4s ease-out,
-        visibility 0.5s ease-out;
+        opacity 0.4s ease-out,
+        transform 0.3s ease-out,
+        visibility 0.4s ease-out;
+    *:hover & {
+        transition:
+            opacity 0.2s ease-out,
+            transform 0.3s ease-out,
+            visibility 0.4s ease-out;
+    }
 
     // .submenu__link
 
@@ -176,12 +179,16 @@
             }
         }
     }
-
+    @media (max-width: 991.98px) {
+        height: 0;
+        overflow: hidden;
+    }
     @media (min-width: 992px) {
         position: absolute;
         top: 100%;
         left: 0;
         padding-block: 5px;
+        transform: translateY(-5%);
     }
 }
 
