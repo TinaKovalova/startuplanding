@@ -12,6 +12,12 @@ window.addEventListener("load", () => {
   burgerButton?.addEventListener("click", () => {
     header?.classList.toggle("_active-menu");
   });
+  document.addEventListener("keydown", (e) => {
+    if (e.code==="Space" &&  header?.classList.contains("_active-menu"))  {
+      header?.classList.remove("_active-menu");
+    }
+    
+  });
 
   window.addEventListener("scroll", () => {
     const headerHeigth = parseInt(getComputedStyle(header).height);

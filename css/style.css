@@ -507,6 +507,18 @@ input[type=number] {
 .navigation__item {
   position: relative;
 }
+.navigation__item:focus-within {
+  color: #8d448b;
+}
+.navigation__item:focus-within .submenu {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  height: auto;
+}
 @media (any-hover: hover) {
   .navigation__item:hover .navigation__link::after {
     -webkit-transform: rotate(-90deg);
@@ -847,7 +859,7 @@ input[type=number] {
   position: absolute;
   left: 24px;
   top: 15px;
-  color: rgba(2, 7, 62, 0.4);
+  color: rgba(2, 7, 62, 0.6);
   font-size: 14px;
   font-weight: 500;
 }

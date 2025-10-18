@@ -94,6 +94,17 @@
 
     &__item {
         position: relative;
+
+        &:focus-within {
+            color: $secondaryColor;
+            & .submenu {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                height: auto;
+            }
+        }
         @media (any-hover: hover) {
             &:hover .navigation__link::after {
                 transform: rotate(-90deg);
